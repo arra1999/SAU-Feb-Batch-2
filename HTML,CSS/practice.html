@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #808080;
+  padding: 20px;
+  font-family: Arial;
+}
+
+/* Center website */
+.main {
+  max-width: 1000px;
+  margin: auto;
+}
+
+h1 {
+  font-size: 50px;
+  word-break: break-all;
+}
+
+.row {
+  margin: 8px -16px;
+}
+
+/* Add padding BETWEEN each column */
+.row,
+.row > .column {
+  padding: 8px;
+}
+
+/* Create four equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 25%;
+}
+
+/* Clear floats after rows */ 
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Content */
+.content {
+  background-color: white;
+  padding: 10px;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 900px) {
+  .column {
+    width: 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- MAIN (Center website) -->
+<div class="main">
+
+<h1>ARRA.COM</h1>
+<hr>
+
+<h2>PORTFOLIO</h2>
+
+
+<!-- Portfolio Gallery Grid -->
+<div class="column">
+    <div class="content">
+    <img src="images/test.jpg" alt="" style="width:100%">
+      <h3>MY NAME</h3>
+      <p>My name is Arra Shashank</p>
+    </div>
+  </div>
+<div class="row">
+  <div class="column">
+    <div class="content">
+      <img src="/w3images/mountains.jpg" alt="" style="width:100%">
+      <h3>MY WORKING ROLE</h3>
+      <p>I'm working as an intern in Acoolite Pvt. Ltd.</p>
+    </div>
+  </div>
+  <div class="column">
+    <div class="content">
+    <img src="/w3images/lights.jpg" alt="" style="width:100%">
+      <h3>STUDY</h3>
+      <p>VII semester of my B.tech at Vasavi College of Engineering!</p>
+    </div>
+  </div>
+  <div class="column">
+    <div class="content">
+    <img src="/w3images/nature.jpeg" alt="" style="width:100%">
+      <h3>HOBBIES</h3>
+      <p>I love writing and playing chess in my free-time.</p>
+    </div>
+  </div>
+  
+<!-- END GRID -->
+</div>
+
+<div class="content">
+  <img src="../images/mypassport.jpeg" alt="Bear" style="width:100%">
+  <p>I've done a few projects in java and one using html, css and php! Another project is Node-Red simulation of a fire-fighting robot!</p>
+</div>
+
+<!-- END MAIN -->
+</div>
+
+</body>
+</html>
