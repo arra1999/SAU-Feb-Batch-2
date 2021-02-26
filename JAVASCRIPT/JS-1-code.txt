@@ -1,0 +1,38 @@
+<html>
+<body>
+<script type="text/javascript" >  
+function calculate() {  
+var data=document.myForm.string.value;  
+
+const vowels='aeiouAEIOU';
+const consonants='bcdfghjklmnnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ';
+var vow=[];
+var con=[];
+for(var i=0;i<data.length;i++) {
+if(vowels.includes(data[i]))
+vow+=data[i];
+else if (consonants.includes(data[i]))
+con+=data[i];
+}
+
+if (data.search("[0-9]")!=-1){
+document.getElementById('mylocation3').innerHTML="<h1 style='color:red;'>ERROR: Number is present in string</h1>";
+}
+else{
+  document.getElementById('mylocation').innerHTML="length of string = "+data.length; 
+document.getElementById('mylocation1').innerHTML="uppercase and lowercase = "+data.toUpperCase()+" "+data.toLowerCase();
+document.getElementById('mylocation2').innerHTML="vowels = "+vow+"  consonants = "+con;
+}
+ }  
+  
+</script>  
+<form name="myForm">  
+<input type="input" value="" name="string">
+<input type="button" value="comment" onclick="calculate()"><br/><br/>
+<div id="mylocation"></div><br/>
+<div id="mylocation1"></div><br/>
+<div id="mylocation2"></div><br/>
+<div id="mylocation3"></div><br/> 
+</form>  
+</body>
+</html>
