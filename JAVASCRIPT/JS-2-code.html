@@ -1,0 +1,128 @@
+<html>
+<head>
+    <script>
+        let students = new Map();
+    
+    
+    
+    class Student {
+      constructor(firstName, lastName, age, gender, dob, rno) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.gender = gender;
+       
+        this.dob = dob;
+        this.rollno=rno;
+      }
+    
+     
+    }
+    
+    
+   
+    
+    
+    function validate() {
+    //document.write("in validate");
+    let firstName = document.getElementById("f_name").value;
+      let lastName = document.getElementById("l_name").value;
+      let dob = document.getElementById("dob").value;
+      let age = document.getElementById("age").value;
+      let gender="";
+      let rollNo = document.getElementById("rno").value;
+    
+      //document.write("in create");
+      let res = true;
+      if(!isNaN(firstName)){
+    alert("Please enter proper entry");
+    return false;}
+    if(!isNaN(lastName)){
+    alert("Please enter proper entry");
+    return false;}
+    if(!isNaN(dob)){
+    alert("Please enter proper entry");
+    return false;}
+    if(!isNaN(age)&& (age<0 && age>100)){
+    alert("Please enter proper entry");
+    return false;}
+    if(document.getElementById('male').checked){
+    gender+="male";
+    }
+    else if(document.getElementById('female').checked)
+    {
+gender+="female";
+     }
+     else{
+       return false;}
+    
+      if ( students.has(rollNo)) {
+        alert("Student With RollNo. Already Exists In the Database");
+      }
+      else {
+         students.set(rollNo,new Student(firstName, lastName, age, gender, dob,rollNo));
+        
+        document.getElementById("mytable").innerHTML = "Roll no:" +rollNo + " "+ "First Name :"+firstName + " Last Name:"+ lastName +" Age:"+ age + " Gender: "+ gender + " DOB:"+ dob;
+    }
+     
+      return res;
+    }
+    
+    
+    
+    
+    function find() {
+      document.getElementById("myTerminal").innerHTML = "";
+      let student = students.get(document.getElementById("srno").value);
+      if (student) {
+        document.getElementById("myTerminal").innerHTML += "First Name:"  + student.firstName + `Last Name: ` + student.lastName + `</p>`;
+        document.getElementById("myTerminal").innerHTML +=  `Age: ` + student.age + `Gender: ` + student.gender + `</p>`;
+        document.getElementById("myTerminal").innerHTML += `<p>Roll Number: ` + student.rollNo + `</p>`;
+    
+        
+    
+      }
+      else
+      alert("No Student With RollNo. Exists In the Database");
+
+    }
+    
+    
+   
+        </script>
+<h1>Validation and search form</h1>
+<head>
+<body>
+    <form>
+<div>
+    
+<p>FirstName:<input type="text" id="f_name" ></p>
+<p>LastName:<input type="text" id="l_name" ></p>
+<p>Age:<input type="text" id="age" ></p>
+<p>gender: <span><input type="radio" name="gender" id="male" value="male">Male  <input type="radio" id="male" name="gender" value="female">Female</span><br><br></p>
+<p>rollno:<input type="text" id="rno" ></p>
+<p>DateofBirth:<input type="text" id="dob" ></p>
+<p>Occupation:<input type="text" id="op" ></p>
+<p id="mytable"> 
+Here, we display data
+</p>
+<button type="submit" form="form1" OnClick="validate()" value="Submit">Submit</button>
+
+</div>
+
+
+
+<div>
+    <p>Enter the rollno:<input type="text" id="srno" ></p>
+    <button type="submit" form="form1" OnClick="find()" value="Submit">Submit</button>
+    <div id="myTerminal" style="height: 400px; background-color: white;">
+       
+
+    </div>
+    
+
+</form>
+
+
+</body>
+</html>
